@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>Анкета</title>
+    <style>
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-side {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .right-side {
+            flex: 1;
+            padding: 40px;
+            border-left: 1px solid #ccc;
+        }
+
+        .resume {
+            width: 595px;
+            height: 842px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+        }
+        .anketa {
+            width: 595px;
+            height: 842px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+        }
+
+        .print-button {
+            margin-top: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <form action="/add_user" method="POST">
+                <label for="Gender">Пол:</label>
+                <input type="text" id="Gender" name="Gender"><br>
+                <label for="Age">Возраст:</label>
+                <input type="text" id="Age" name="Age"><br>
+                <label for="Salary">ЗП:</label>
+                <input type="text" id="Salary" name="Salary"><br>
+                <label for="job_for_a_position">Должность:</label>
+                <input type="text" id="job_for_a_position" name="job_for_a_position"><br>
+                <label for="About_me">Обо мне (тезисы):</label>
+                <input type="text" id="About_me" name="About_me"><br>
+                <label for="City">Город:</label>
+                <input type="text" id="City" name="City"><br>
+                <label for="Employment_Schedule">График:</label>
+                <input type="text" id="Employment_Schedule" name="Employment_Schedule"><br>
+                <label for="Work_Experience">Опыт работы:</label>
+                <input type="text" id="Work_Experience" name="Work_Experience"><br>
+                <label for="Tasks_performed">Выполняемые задачи:</label>
+                <input type="text" id="Tasks_performed" name="Tasks_performed"><br>
+                <label for="Key_Skills">Ключевые навыки:</label>
+                <input type="text" id="Key_Skills" name="Key_Skills"><br>
+                <label for="Education">Образование:</label>
+                <input type="text" id="Education" name="Education"><br>
+                <input type="submit" value="Добавить в БД">
+            </form>
+        </div>
+        <div class="right-side">
+            <h1>Резюме</h1>
+            <div class="resume">
+                <h2 id="resume-Gender"></h2>
+                <h2 id="resume-Age"></h2>
+                <h2 id="resume-Salary"></h2>
+                <h2 id="resume-job_for_a_position"></h2>
+                <h2 id="resume-About_me"></h2>
+                <h2 id="resume-City"></h2>
+                <h2 id="resume-Employment_Schedule"></h2>
+                <h2 id="resume-Work_Experience"></h2>
+                <h2 id="resume-Tasks_performed"></h2>
+                <h2 id="resume-Key_Skills"></h2>
+                <h2 id="resume-Education"></h2>
+            <div class="print-button">
+                <button onclick="printResume()">Печать резюме</button>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function printResume() {
+            
+            var Gender = document.getElementById("Gender").value;
+            var Age = document.getElementById("Age").value;
+            var Salary = document.getElementById("Salary").value;
+            var job_for_a_position = document.getElementById("job_for_a_position").value;
+            var About_me = document.getElementById("About_me").value;
+            var City = document.getElementById("City").value;
+            var Employment_Schedule = document.getElementById("Employment_Schedule").value;
+            var Work_Experience = document.getElementById("Work_Experience").value;
+            var Tasks_performed = document.getElementById("Tasks_performed").value;
+            var Key_Skills = document.getElementById("Key_Skills").value;
+            var Education = document.getElementById("Education").value;
+
+            var resumeGender = document.getElementById("resume-Gender");
+            var resumeAge = document.getElementById("resume-Age");
+            var resumeSalary = document.getElementById("resume-Salary");
+            var resumejob_for_a_position= document.getElementById("resume-job_for_a_position");
+            var resumeAbout_me = document.getElementById("resume-About_me");
+            var resumeCity = document.getElementById("resume-City");
+            var resumeEmployment_Schedule = document.getElementById("resume-Employment_Schedule");
+            var resumeWork_Experience = document.getElementById("resume-Work_Experience");
+            var resumeTasks_performed = document.getElementById("resume-Tasks_performed");
+            var resumeKey_Skills = document.getElementById("resume-Key_Skills");
+            var resumeEducation = document.getElementById("resume-Education");
+
+            resumeGender.innerHTML = "Пол: " + Gender;
+            resumeAge.innerHTML = "Возраст: " + Age;
+            resumeSalary.innerHTML = "ЗП: " + Salary;
+            resumejob_for_a_position.innerHTML = "Должность: " + job_for_a_position;
+            resumeAbout_me.innerHTML = "Обо мне (тезисы): " + About_me;
+            resumeCity.innerHTML = "Город: " + City;
+            resumeEmployment_Schedule.innerHTML = "График: " + Employment_Schedule;
+            resumeWork_Experience.innerHTML = "Опыт работы: " + Work_Experience;
+            resumeTasks_performed.innerHTML = "Выполняемые задачи: " + Tasks_performed;
+            resumeKey_Skills.innerHTML = "Ключевые навыки: " + Key_Skills;
+            resumeEducation.innerHTML = "Ключевые навыки: " + Education;
+
+            window.print();
+        }
+    </script>
+</body>
+</html>
